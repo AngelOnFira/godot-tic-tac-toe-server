@@ -11,5 +11,19 @@ class Tasker:
 		print("Lobby initialized.")
 
 	async def _connectPlayer(self, websocket, address):
-		print(websocket)
-		print(address)
+		await self._monitorClientRequests(websocket)
+
+	async def _monitorClientRequests(self, websocket):
+		# Check if the connection with a websocket is lost
+
+		await websocket.send("test")
+		try:	
+			print("checking if user is still connected")
+		
+			while True:
+				request = await websocket.recv()
+
+				print(request)
+
+		except:  # What is the type of  the error atm if any error occurs deregister the client
+			print("We have an error")

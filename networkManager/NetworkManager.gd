@@ -31,6 +31,7 @@ func _connectToHost():
 	client.connect("connection_error", self, "_connection_error")
 	client.connect("connection_closed", self, "_connection_closed")
 	
+	client.poll()
 	
 func _connection_established(protocol):
 	clientConnected = true
