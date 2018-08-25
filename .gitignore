@@ -3,4 +3,4 @@
 .import/
 logs/
 .vscode
-*__pycashe__
+*__pycache__
